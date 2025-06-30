@@ -17,47 +17,47 @@
             <span th:text="${msg}"></span>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
-        <a class="btn btn-sm btn-primary mb-2" th:href="@{/categories/new}">Nouvelle catégorie</a>
+        <a class="btn btn-sm btn-primary mb-2" th:href="@{/category/new}">Nouvelle catégorie</a>
         <table class="table table-hover table-bordered table-striped">
             <thead>
-                <tr class="table-success">
-                    <th scope="col" class="text-center">N°</th>
-                    <th scope="col">Libellé de la catégorie</th>
-                    <th scope="col" class="text-center">Action</th>
-                </tr>
+            <tr class="table-success">
+                <th scope="col" class="text-center">N°</th>
+                <th scope="col">Libellé de la catégorie</th>
+                <th scope="col" class="text-center">Action</th>
+            </tr>
             </thead>
             <tbody>
-                <th:block th:each="c, iter : ${categories}">
-                    <tr>
-                        <td class="text-center" th:text="${iter.index + 1}"></td>
-                        <td th:text="${c.libelleCategorie}"></td>
-                        <td class="text-center">
-                            <a class="btn btn-warning btn-sm" th:href="@{/categories/edit/{id}(id=${c.id})}" title="Modifier">
-                                <i class="fa-solid fa-pen-nib"></i>
-                            </a>
-                            <a class="btn btn-danger btn-sm" th:data-bs-target="'#modal' + ${c.id}" data-bs-toggle="modal">
-                                <i class="fa-solid fa-trash"></i>
-                            </a>
-                            <div class="modal fade" th:id="'modal' + ${c.id}" data-bs-backdrop="static">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">Suppression d'une catégorie!</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Supprimer la catégorie [[${c.libelleCategorie}]] ?</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a class="btn btn-danger" th:href="@{/categories/delete/{id}(id=${c.id})}">Confirmer</a>
-                                            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Annuler</button>
-                                        </div>
+            <th:block th:each="c, iter : ${categories}">
+                <tr>
+                    <td class="text-center" th:text="${iter.index + 1}"></td>
+                    <td th:text="${c.libelleCategorie}"></td>
+                    <td class="text-center">
+                        <a class="btn btn-warning btn-sm" th:href="@{/category/edit/{id}(id=${c.id})}" title="Modifier">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" th:data-bs-target="'#modal' + ${c.id}" data-bs-toggle="modal">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
+                        <div class="modal fade" th:id="'modal' + ${c.id}" data-bs-backdrop="static">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Suppression d'une catégorie!</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Supprimer la catégorie [[${c.libelleCategorie}]] ?</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <a class="btn btn-danger" th:href="@{/category/delete/{id}(id=${c.id})}">Confirmer</a>
+                                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Annuler</button>
                                     </div>
                                 </div>
                             </div>
-                        </td>
-                    </tr>
-                </th:block>
+                        </div>
+                    </td>
+                </tr>
+            </th:block>
             </tbody>
         </table>
     </div>

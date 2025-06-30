@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{base}">
 <head>
-    <th:block th:replace="~{base :: page_head('Ajouter une Catégorie')}"></th:block>
+    <th:block th:replace="~{base :: page_head('Modifier une Catégorie')}"></th:block>
 </head>
 <body>
 <!-- Inclusion du header-->
@@ -11,15 +11,15 @@
 <!-- Content-->
 <div layout:fragment="content">
     <div class="container mt-5">
-        <h2 class="text-center text-success">Ajouter une Nouvelle Catégorie</h2>
+        <h2 class="text-center text-success">Modifier la Catégorie</h2>
 
-        <form th:action="@{/category/save}" method="post">
+        <form th:action="@{/category/update/{id}(id=${category.id})}" method="post" th:object="${category}">
             <div class="mb-3">
                 <label for="libelleCategorie" class="form-label">Libellé de la catégorie</label>
-                <input type="text" id="libelleCategorie" name="libelleCategorie" class="form-control" required>
+                <input type="text" id="libelleCategorie" name="libelleCategorie" class="form-control" th:value="*{libelleCategorie}" required>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success">Ajouter</button>
+                <button type="submit" class="btn btn-success">Mettre à jour</button>
                 <a class="btn btn-secondary" th:href="@{/category}">Annuler</a>
             </div>
         </form>
