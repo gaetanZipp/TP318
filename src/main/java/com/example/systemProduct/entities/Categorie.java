@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "categories")
@@ -16,7 +17,8 @@ import java.util.List;
 @ToString(exclude = "produits") // Évite les références circulaires dans toString()
 public class Categorie {
     @Id
-    private String id;
+    @GeneratedValue
+    private UUID id;
 
     @Column(nullable = false)
     @NotBlank(message = "le libelle de la categorie est obligatoire")
