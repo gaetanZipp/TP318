@@ -6,7 +6,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.example.systemProduct.entities.Categorie;
+import com.example.systemProduct.entities.Category;
 import com.example.systemProduct.repository.CategorieRepository;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -14,26 +14,26 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class CategorieService {
+public class CategoryService {
     
     private final CategorieRepository categorieRepository;
 
-    public Categorie addCategorie(Categorie categorie) {
+    public Category addCategorie(Category categorie) {
         if(categorieRepository.existsDistinctByLibelleCategorie(categorie.getLibelleCategorie())) {
             throw new IllegalArgumentException("La categorie " + categorie.getLibelleCategorie() + " existe deja");
         }
         return categorieRepository.save(categorie);
     }
 
-    public List<Categorie> getAllCategories(){
+    public List<Category> getAllCategories(){
         return categorieRepository.findAll();
     }
 
-    public Optional<Categorie> getCategorieByID(UUID id){
+    public Optional<Category> getCategorieByID(UUID id){
         return categorieRepository.findById(id);    
     }
 
-    public Categorie updateCategorie(UUID id, Categorie categorie){
+    public Category updateCategorie(UUID id, Category categorie){
         return categorieRepository.findById(id).map(existingCategorie -> {
             existingCategorie.setLibelleCategorie(categorie.getLibelleCategorie());
             return categorieRepository.save(existingCategorie);

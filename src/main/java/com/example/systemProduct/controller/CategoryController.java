@@ -1,7 +1,6 @@
 package com.example.systemProduct.controller;
 
-import com.example.systemProduct.entities.Category;
-import com.example.systemProduct.service.CategoryService;
+
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.example.systemProduct.entities.Category;
+import com.example.systemProduct.service.CategoryService;
 
 import java.util.UUID;
 
@@ -41,7 +43,7 @@ public class CategoryController {
             return "category/add";
         }
         try {
-            categoryService.addCategory(category);
+            categoryService.addCategorie(category);
             ra.addFlashAttribute("msg", "La catégorie a été créée avec succès!");
             return "redirect:/category";
         } catch (IllegalArgumentException e) {
@@ -52,7 +54,7 @@ public class CategoryController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable UUID id, Model model) {
-        Category category = categoryService.getCategoryById(id)
+        Category category = categoryService.getCategorieByID(id)
                 .orElseThrow(() -> new EntityNotFoundException("Catégorie non trouvée"));
         model.addAttribute("category", category);
         return "category/edit";
@@ -68,7 +70,7 @@ public class CategoryController {
             return "category/edit";
         }
         try {
-            categoryService.updateCategory(id, category);
+            categoryService.updateCategorie(id, category);
             ra.addFlashAttribute("msg", "La catégorie a été mise à jour avec succès!");
             return "redirect:/category";
         } catch (IllegalArgumentException e) {
@@ -79,7 +81,7 @@ public class CategoryController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable UUID id, RedirectAttributes ra) {
-        categoryService.deleteCategory(id);
+        categoryService.deleteCategorie(id);
         ra.addFlashAttribute("msg", "La catégorie a été supprimée avec succès!");
         return "redirect:/category";
     }

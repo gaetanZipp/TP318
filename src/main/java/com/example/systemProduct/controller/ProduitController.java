@@ -1,8 +1,8 @@
 package com.example.systemProduct.controller;
 
 import com.example.systemProduct.entities.Produit;
-import com.example.systemProduct.service.ProduitService;
 import com.example.systemProduct.service.CategoryService;
+import com.example.systemProduct.service.ProduitService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -57,8 +57,7 @@ public class ProduitController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable UUID id, Model model) {
-        Produit produit = produitService.getProduitById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Produit non trouvé"));
+        Produit produit = produitService.getProduitByID(id);
         model.addAttribute("produit", produit);
         model.addAttribute("categories", categoryService.getAllCategories());
         return "produit/edit";

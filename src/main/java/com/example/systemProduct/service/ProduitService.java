@@ -3,12 +3,7 @@ package com.example.systemProduct.service;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
-
-import javax.swing.text.html.parser.Entity;
-
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.annotation.RequestScope;
-
 import com.example.systemProduct.dto.ProduitDTO;
 import com.example.systemProduct.entities.Produit;
 import com.example.systemProduct.repository.CategorieRepository;

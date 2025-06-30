@@ -37,5 +37,5 @@ public class Produit {
     // Ajoutez cette propriété pour la relation
     @ManyToOne
     @JoinColumn(name = "categorie_id")
-    private Categorie categorie;
+    private Category categorie;
 }

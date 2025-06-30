@@ -15,7 +15,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString(exclude = "produits") // Évite les références circulaires dans toString()
-public class Categorie {
+public class Category {
     @Id
     @GeneratedValue
     private UUID id;
