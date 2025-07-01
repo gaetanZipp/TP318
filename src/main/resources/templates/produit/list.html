@@ -3,7 +3,7 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{base}">
 <head>
-    <th:block th:replace="~{base :: page_head('Liste des Catégories')}"></th:block>
+    <th:block th:replace="~{base :: page_head('Liste des produits')}"></th:block>
 </head>
 <body>
 
@@ -15,8 +15,8 @@
         <div class="pb-3">
             <ul class="nav nav-underline">
                 <li class="nav-item d-flex align-items-center gap-2">
-                    <a class="nav-link active" aria-current="page" href="#">Toute les catégories</a>
-                    <span class="badge text-bg-secondary" th:text="${categories.size()}"></span>
+                    <a class="nav-link active" aria-current="page" href="#">Toute les Produits</a>
+                    <span class="badge text-bg-secondary" th:text="${produits.size()}"></span>
                 </li>
             </ul>
         </div>
@@ -24,24 +24,34 @@
             <table id="example" class="table-products">
                 <thead>
                 <tr>
-                    <th style="width: 70%">Libellé</th>
-                    <th style="width: 30%">Actions</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                    <th>Date expiration</th>
+                    <th class="actions">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="category : ${categories}">
-                    <td th:text="${category.libelleCategorie}"></td>
+                <tr th:each="produit : ${produits}">
+                    <td th:text="${produit.nomProduit}"></td>
+                    <td th:text="${produit.prixProduit}"></td>
+                    <td th:text="${produit.categorieNom()}"></td>
+                    <td th:text="${produit.dateExpiration}"></td>
                     <td>
-                        <a th:href="@{/category/edit/{id}(id=${category.id})}" class="btn btn-success"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{/produit/edit/{id}(id=${produit.id})}" class="btn btn-success"><i
+                                class="fas fa-edit"></i></a>
                         <a href="#" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                           th:data-id="${category.id}"><i class="fas fa-trash-alt"></i></a>
+                           th:data-id="${produit.id}"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th style="width: 70%">Libellé</th>
-                    <th style="width: 30%">Actions</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                    <th>Date expiration</th>
+                    <th class="actions">Actions</th>
                 </tr>
                 </tfoot>
             </table>
@@ -86,7 +96,7 @@
             var button = $(event.relatedTarget);
             var categoryId = button.data('id');
             var confirmDeleteBtn = $('#confirmDelete');
-            confirmDeleteBtn.attr('href', '/category/delete/' + categoryId);
+            confirmDeleteBtn.attr('href', '/produit/delete/' + categoryId);
         });
     })
 </script>

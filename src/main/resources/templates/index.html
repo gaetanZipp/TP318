@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}">
+<!-- Appel correct du fragment avec paramètre-->
+<head th:replace="~{base::page_head(titrePage='AJOUTER UN DEPARTEMENT')}">
+</head>
+<body>
+<!-- Content-->
+
+<div class="dashboard row" layout:fragment="content">
+
+    <div th:replace="~{layouts/_sidebar::sidebar}"></div>
+
+    <div class="col-lg-8 container py-5 d-flex align-items-center justify-content-center min-vh-100">
+        <div class="card shadow-lg p-5 w-100" style="max-width: 600px; border-radius: 10px; background: #fff;">
+            <div class="text-center mb-4">
+                    <span style="font-size: 3rem; color: var(--main-purple);">
+                        <i class="fas fa-layer-group"></i>
+                    </span>
+                <h1 class="fw-bold mt-3 mb-2" style="color: var(--main-purple);">Projet CRUD<br><span
+                        style="color: var(--secondary-color); font-size:1.2rem;">Gestion Produits &
+                            Catégories</span></h1>
+            </div>
+            <p class="lead text-center mb-4" style="color: #444;">
+                Ce projet permet de gérer les produits et les catégories via une interface web moderne. <br>
+                <span class="d-block mt-1">Vous pouvez créer, modifier et supprimer des produits et des catégories,
+                        qui sont liés entre eux.</span>
+            </p>
+            <h4 class="mb-3 mt-4" style="color: var(--main-purple);"><i class="fas fa-users me-2"></i>Membres du
+                groupe</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex align-items-center gap-3 member-item">
+                        <span
+                                class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:38px;height:38px;font-weight:bold;">GB</span>
+                    <span class="fw-semibold">Gaetan Bagze</span>
+                    <span class="ms-auto">
+                            <span class="badge bg-success">Chef de projet</span>
+                            <span class="badge bg-success">Entité</span>
+                        </span>
+                </li>
+                <li class="list-group-item d-flex align-items-center gap-3 member-item">
+                        <span
+                                class="avatar bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:38px;height:38px;font-weight:bold;">TJ</span>
+                    <span class="fw-semibold">Tienou Junior</span>
+                    <span class="badge bg-warning ms-auto">Controlleur</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center gap-3 member-item">
+                        <span
+                                class="avatar bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:38px;height:38px;font-weight:bold;">MK</span>
+                    <span class="fw-semibold">Marilane Kakeu</span>
+                    <span class="badge bg-danger ms-auto">Templates</span>
+                </li>
+                <li class="list-group-item d-flex align-items-center gap-3 member-item">
+                        <span
+                                class="avatar bg-warning text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:38px;height:38px;font-weight:bold;">NP</span>
+                    <span class="fw-semibold">Negoue Tchinda Patrick</span>
+                    <span class="badge bg-info ms-auto">Templates</span>
+                </li>
+
+                <li class="list-group-item d-flex align-items-center gap-3 member-item">
+                        <span
+                                class="avatar bg-danger text-white rounded-circle d-flex align-items-center justify-content-center"
+                                style="width:38px;height:38px;font-weight:bold;">KB</span>
+                    <span class="fw-semibold">Kemzang Teumena Brayan</span>
+                    <span class="ms-auto">
+                            <span class="badge bg-dark ms-auto">Service</span>
+                            <span class="badge bg-danger ms-auto">DTO</span>
+                            <span class="badge bg-success ms-auto">Templates</span>
+                        </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div layout:fragment="bas_de_page" th:replace="~{base::bas_de_page}"></div>
+
+</body>
+</html>

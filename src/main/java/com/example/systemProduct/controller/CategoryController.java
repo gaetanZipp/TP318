@@ -22,15 +22,20 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
+
+
     @GetMapping
     public String getAllCategories(Model model) {
         model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("currentPage", "category");
         return "category/list";
     }
 
     @GetMapping("/new")
     public String add(Model model) {
         model.addAttribute("category", new Category());
+        model.addAttribute("currentPage", "category.new");
+
         return "category/add";
     }
 
@@ -57,6 +62,8 @@ public class CategoryController {
         Category category = categoryService.getCategorieByID(id)
                 .orElseThrow(() -> new EntityNotFoundException("Catégorie non trouvée"));
         model.addAttribute("category", category);
+        model.addAttribute("currentPage", "category.edit");
+
         return "category/edit";
     }
 

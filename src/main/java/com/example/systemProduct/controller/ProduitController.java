@@ -25,6 +25,8 @@ public class ProduitController {
     @GetMapping
     public String getAllProduits(Model model) {
         model.addAttribute("produits", produitService.getAllProduits());
+        model.addAttribute("currentPage", "produit");
+
         return "produit/list";
     }
 
@@ -32,6 +34,7 @@ public class ProduitController {
     public String add(Model model) {
         model.addAttribute("produit", new Produit());
         model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("currentPage", "produit.new");
         return "produit/add";
     }
 
@@ -60,6 +63,8 @@ public class ProduitController {
         Produit produit = produitService.getProduitByID(id);
         model.addAttribute("produit", produit);
         model.addAttribute("categories", categoryService.getAllCategories());
+        model.addAttribute("currentPage", "produit.edit");
+
         return "produit/edit";
     }
 

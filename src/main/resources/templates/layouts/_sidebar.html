@@ -1,0 +1,35 @@
+<div class="col-lg-4 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;"
+     th:fragment="sidebar">
+    <a th:href="@{/}"
+       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none px-3 fs-6">
+        <i class="fas fa-boxes fa-2x me-2"></i>
+        <span class="fs-4">Gestion Produit</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto px-2">
+        <li class="nav-item sidebar-dropdown my-4">
+
+            <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+               th:classappend="${currentPage == 'produit' || currentPage == 'produit.new'|| currentPage == 'produit.edit'} ? 'nav-link active'">
+                <span><i class="fas fa-box me-2"></i> Produit</span>
+                <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="sidebar-dropdown-menu">
+                <a th:href="@{/produit/new}" th:classappend="${currentPage == 'produit.new'} ? 'nav-link active'"><i class="fas fa-plus"></i> Créer</a>
+                <a th:href="@{/produit}" th:classappend="${currentPage == 'produit'} ? 'nav-link active'"><i class="fas fa-list"></i> Lire</a>
+            </div>
+        </li>
+        <li class="nav-item sidebar-dropdown">
+            <a href="#" class="nav-link d-flex justify-content-between align-items-center"
+               th:classappend="${currentPage == 'category' || currentPage == 'category.new' || currentPage == 'category.edit'} ? 'active'">
+                <span><i class="fas fa-tags me-2"></i> Catégorie</span>
+                <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="sidebar-dropdown-menu">
+                <a class="nav-link" th:href="@{/category/new}" th:classappend="${currentPage == 'category.new'} ? 'nav-link active'"><i class="fas fa-plus"></i> Créer</a>
+                <a th:href="@{/category}" th:classappend="${currentPage == 'category'} ? 'nav-link active'"><i class="fas fa-list"></i> Lire</a>
+            </div>
+
+        </li>
+    </ul>
+</div>

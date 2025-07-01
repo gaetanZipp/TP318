@@ -1,0 +1,199 @@
+/* Palette principale */
+:root {
+    --main-purple: #033afd;
+    --secondary-color: #252424;
+    --sidebar-bg: #fff;
+    --sidebar-text: #252424;
+    --sidebar-active: var(var(--main-purple))
+    --sidebar-hover: #a084e8;
+    --content-bg: #faf8ff;
+    --table-bg: #f9f9f9;
+    --table-text: #333;
+    --table-hover: #f2f2f2;
+    --badge-completed: #2ecc71;
+    --badge-pending: #f1c40f;
+    --badge-rejected: #e74c3c;
+}
+
+body {
+    background: var(--content-bg);
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.dashboard {
+    overflow-x: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-shadow: 0 2px 8px rgba(108,63,197,0.07);
+}
+
+.dashboard > div
+{
+    min-height: 100vh;
+}
+
+.badge.text-bg-secondary
+{
+    background-color: var(--main-purple) !important;
+}
+
+/* Table de produits */
+.table-products {
+    background: var(--table-bg);
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-products th {
+    background: #fff;
+    color: var(--table-text);
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-products td {
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-products tr:hover {
+    background: var(--table-hover);
+}
+
+.table-products .actions {
+    text-align: right;
+}
+
+.table-products .badge {
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.table-products .badge-completed {
+    background: var(--badge-completed);
+    color: #fff;
+}
+
+.table-products .badge-pending {
+    background: var(--badge-pending);
+    color: #fff;
+}
+
+.table-products .badge-rejected {
+    background: var(--badge-rejected);
+    color: #fff;
+}
+
+.table-products .price {
+    font-weight: bold;
+    color: var(--main-purple);
+}
+
+.btn-manage {
+    background: var(--main-purple);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background 0.2s;
+}
+
+.btn-manage:hover {
+    background: #4b2589;
+    color: #fff;
+}
+
+.btn-actions {
+    background: #fff;
+    color: var(--main-purple);
+    border: 1px solid var(--main-purple);
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background 0.2s;
+}
+
+.btn-actions:hover {
+    background: var(--main-purple);
+    color: #fff;
+}
+
+/* Dropdown CRUD */
+
+
+.sidebar-dropdown {
+    position: relative;
+}
+.sidebar-dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-width: 180px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(108,63,197,0.15);
+    z-index: 10;
+    padding: 0.5rem 0;
+}
+
+.sidebar-dropdown:hover .sidebar-dropdown-menu {
+    display: block;
+}
+
+.sidebar-dropdown a
+{
+    color: white;
+}
+.sidebar-dropdown-menu a {
+    color: var(--main-purple);
+    padding: 8px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+.sidebar-dropdown-menu a:hover {
+    background: var(--main-purple);
+    color: #fff;
+}
+
+.sidebar-dropdown-menu .nav-link.active
+{
+    background: var(--main-purple);
+    border-radius: 0px !important;
+}
+
+.sidebar-dropdown-menu .nav-link:hover
+{
+    background: var(--main-purple);
+    border-radius: 0px !important;
+}
+
+/* Table, bouton, etc. */
+.btn-purple {
+    background: var(--main-purple);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.2s;
+}
+.btn-purple:hover {
+    background: #4b2589;
+    color: #fff;
+}
+
+
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(108,63,197,0.07);
+}
+
+
+

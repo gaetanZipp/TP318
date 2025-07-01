@@ -2,25 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <!-- Fragment avec paramètre optionnel-->
     <th:block th:fragment="page_head(titrePage)">
         <meta charset="UTF-8">
-        <title th:text="${'STORE- ' + titrePage}"></title>
+        <title th:text="${'STORE - ' + titrePage}">STORE</title>
         <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
         <link rel="stylesheet" th:href="@{/css/all.min.css}">
+        <link rel="stylesheet" th:href="@{/css/custom.css}">
+        <link rel="stylesheet" th:href="@{/css/datatable.min.css}">
     </th:block>
 </head>
 <body>
-<!-- Inclusion du header-->
-<div layout:fragment="header" th:replace="~{layouts/_header :: header}"></div>
+
+
+<div layout:fragment="header" th:replace="~{layouts/_header ::header}"></div>
 <div class="container mt-5" layout:fragment="content">
-    <!-- Content de chaque page-->
+
 </div>
-<!-- Inclusion du footer-->
-<div th:fragment="bas_de_page" class="mt-5">
-    <div layout:fragment="footer" th:replace="~{layouts/_footer :: footer}"></div>
+
+<!-- Scripts -->
+<div th:fragment="bas_de_page">
+    <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/all.min.js}"></script>
+    <script th:src="@{/js/datatable.js}"></script>
+    <script th:src="@{/js/datatable-bootstrap5.js}"></script>
 </div>
 </body>
 </html>
